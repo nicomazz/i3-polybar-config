@@ -1,37 +1,42 @@
 [bar/top]
-;monitor = eDP-1-1
+monitor = eDP-1-1
 width = 100%
-height = 50
+height = 40
 
 background = #00000000
 foreground = #ccffffff
 
 line-color = ${bar/bottom.background}
-line-size = 16
+line-size = 2
 
-spacing = 2
+spacing = 1
 padding-right = 5
-module-margin = 4
+module-margin = 2
+;font-0 = NotoSans-Regular:size=19;-1
 
-font-0 = NotoSans-Regular:size=20;-1
-font-1 = MaterialIcons:size=26;0
-font-2 = Termsynu:size=20:antialias=false;-2
-font-3 = FontAwesome:size=26;0
+font-0 = Termsynu:size=19:antialias=false;-1
+font-1 = MaterialIcons:size=19;0
+font-2 = Termsynu:size=15:antialias=false;-2
+font-3 = FontAwesome:size=18;0
 
-modules-left = powermenu mpd bspwm 
-modules-right = temperature filesystem volume backlight wireless-network  battery date   xkeyboard     
+modules-left = mpd bspwm i3 
+modules-right = cpu memory temperature filesystem xkeyboard volume backlight wireless-network  battery date        
 
-tray-position = right
+tray-position = right 
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 tray-maxsize=1000
 
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+
 [bar/bottom]
-;monitor = eDP-1-1
+monitor = HDMI-1-1
 bottom = true
 width = 100%
-height = 50
+height = 30
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -47,15 +52,16 @@ padding-right = 4
 module-margin-left = 0 
 module-margin-right = 6
 
-font-0 = NotoSans-Regular:size=20;0
-font-1 = unifont:size=16;-3
-font-2 = FontAwesome:size=20;-2
-font-3 = NotoSans-Regular:size=20;-1
-font-4 = MaterialIcons:size=26;-1
-font-5 = Termsynu:size=20:antialias=false;0
+;font-0 = NotoSans-Regular:size=10;0
+font-0 = Termsynu:size=10;-1
+font-1 = unifont:size=8;0
+font-2 = FontAwesome:size=10;0
+font-3 = NotoSans-Regular:size=10;0
+font-4 = MaterialIcons:size=10;3
+font-5 = Termsynu:size=10:antialias=false;0
 
 modules-left = bspwm i3 spotify
-modules-right = cpu memory
+modules-right =   filesystem volume backlight   battery date
 
 [module/backlight]
 type = internal/backlight
@@ -356,7 +362,7 @@ date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 [module/temperature]
 type = internal/temperature
 thermal-zone = 5
-warn-temperature = 60
+warn-temperature = 65
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
@@ -458,7 +464,7 @@ type = custom/script
 interval = 5
 format-prefix = "  "  
 format = <label>
-exec = /path/to/spotify.py
+exec = /home/nicomazz97/.config/polybar/spotify.py
 
 
 format-underline = #1db954
