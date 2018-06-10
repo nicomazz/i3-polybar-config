@@ -155,6 +155,8 @@ bindsym $mod+r mode "resize"
  #       status_command i3status
 #}
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+b exec --no-startup-id /home/nicomazz97/.screenlayout/both.sh
+bindsym $mod+m exec --no-startup-id /home/nicomazz97/.screenlayout/single.sh 
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -184,5 +186,9 @@ exec --no-startup-id xrandr --dpi 220
 #mega
 exec --no-startup-id megasync
 exec --no-startup-id dropbox start
-exec --no-startup-id feh --bg-fill /path_to/sfondo_4k.jpg
+exec --no-startup-id feh --bg-fill /home/nicomazz97/Immagini/blocks_screen.jpg
 
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym --release $mod+p exec  maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+bindsym $mod+g exec --no-startup-id rofi -show window
