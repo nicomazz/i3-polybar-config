@@ -1,42 +1,67 @@
 [bar/top]
-monitor = eDP-1-1
+enable-ipc = true
+bottom = true
+monitor = eDP1
 width = 100%
-height = 40
+height = 43
+dpi = 192
 
-background = #00000000
-foreground = #ccffffff
+background = #1f1f1f
+foreground = #eee
 
 line-color = ${bar/bottom.background}
-line-size = 2
+line-size = 1
 
-spacing = 1
-padding-right = 5
-module-margin = 2
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+
+
+separator = |
+
 ;font-0 = NotoSans-Regular:size=19;-1
 
-font-0 = Termsynu:size=19:antialias=false;3
-font-1 = MaterialIcons:size=19;0
-font-2 = Termsynu:size=15:antialias=false;-2
-font-3 = FontAwesome:size=18;0
+;font-0 = Misc\ Termsynu:size=19:antialias=false;3
+;font-0 = NotoSans-Regular:size=10;2
+;font-1 = Material\ Icons:size=10;0
+;font-2 = Misc\ Termsynu:size=10;-2
+;font-3 = FontAwesome:size=9;0
 
-modules-left = mpd bspwm i3 
-modules-right = cpu memory temperature filesystem xkeyboard volume backlight wireless-network  battery date        
+font-0 = NotoSans-Regular:size=9;0
+font-1 = Material\ Icons:size=11;2
+font-2 = xos4\ Terminus:size=14;0
+font-3 = Siji:pixelsize=11;1
+font-4 = FontAwesome:size=11;0
+
+
+modules-left = mpd i3 
+modules-right = cpu memory temperature filesystem xkeyboard volume wireless-network consumation  battery date        
+
+wm-restack = i3
 
 tray-position = right 
-tray-padding = 2
+tray-scale = 1.0
 ;tray-transparent = true
-;tray-background = #0063ff
-tray-maxsize=1000
+tray-background = ${self.background}
+tray-maxsize = 64
+
+tray-offset-y = 0
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
 
 [bar/bottom]
-monitor = HDMI-1-1
+monitor = HDMI1
 bottom = true
 width = 100%
-height = 30
+height = 40
+dpi = 192
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -53,22 +78,23 @@ module-margin-left = 0
 module-margin-right = 6
 
 ;font-0 = NotoSans-Regular:size=10;0
-font-0 = Termsynu:size=10;3
-font-1 = unifont:size=8;2
-font-2 = FontAwesome:size=10;3
-font-3 = NotoSans-Regular:size=10;0
-font-4 = MaterialIcons:size=10;3
-font-5 = Termsynu:size=10:antialias=false;0
+font-0 = NotoSans-Regular:size=9;0
+font-1 = Material\ Icons:size=11;2
+font-2 = xos4\ Terminus:size=14;0
+font-3 = Siji:pixelsize=11;1
+font-4 = FontAwesome:size=11;0
 
-modules-left = bspwm i3 spotify
+modules-left = i3 
 modules-right =   filesystem volume backlight   battery date
 
 [module/backlight]
 type = internal/backlight
-format = <ramp> <bar>
+format = <label>
+#format = <ramp> <bar>
 
-card = intel_backlight
+card =  intel_backlight
 
+label = %percentage%%
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -84,6 +110,12 @@ bar-empty = ─
 bar-empty-font = 3
 bar-empty-foreground = #44
 
+[module/consumation]
+type = custom/script
+
+exec = /path/to/power.sh
+interval = 2
+
 [module/battery]
 type = internal/battery
 full-at = 98
@@ -92,6 +124,8 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%% %time%h 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = #f53c3c
 ramp-capacity-1 = 
@@ -191,7 +225,6 @@ type = internal/cpu
 interval = 0.5
 format = <label> <ramp-coreload>
 label = CPU
-
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
 ramp-coreload-0-foreground = #aaff77
@@ -400,6 +433,8 @@ ws-icon-3 = 4;♝
 ws-icon-4 = 5;♞
 ws-icon-default = ♟
 
+label-dimmed-underline = ${root.background}
+
 ; Available tags:
 ;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
 ;   <label-mode> (default)
@@ -409,7 +444,7 @@ format = <label-state> <label-mode>
 ;   %mode%
 ; Default: %mode%
 label-mode = %mode%
-label-mode-padding = 2
+label-mode-padding = 0
 label-mode-background = #e60053
 
 ; Available tokens:
@@ -456,7 +491,7 @@ label-urgent-padding = 4
 
 ; Separator in between workspaces
 label-separator = |
-label-separator-padding = 2
+label-separator-padding = 0
 label-separator-foreground = #ffb52a
 
 [module/spotify]
