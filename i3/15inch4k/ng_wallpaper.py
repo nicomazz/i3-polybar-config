@@ -22,10 +22,12 @@ def getImageTitleUrl():
 	r = requests.get(url)
 	
 	if r.status_code == 200:
-	    data = r.json()
-	    if 'items' in data:
-	        current_photo = data['items'][0]
-	        return current_photo["title"], current_photo['sizes']['2048']
+			data = r.json()
+			if 'items' in data:
+				current_photo = data['items'][0]
+				if 'sizes' in current_photo:
+					return current_photo["title"], current_photo['sizes']['2048']
+				return current_photo["title"],current_photo["url"]
 	return "";
 
 title, url = getImageTitleUrl();   
