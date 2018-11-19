@@ -57,15 +57,17 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+F1 exec pcmanfm
+bindsym $mod+Shift+F1 exec gksu pcmanfm
+bindsym $mod+F2 exec google-chrome-stable
+bindsym $mod+F3 exec spotify --force-device-scale-factor=2
 bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
+bindsym Print exec --no-startup-id flameshot gui
+#bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
@@ -100,7 +102,10 @@ bindsym $mod+Shift+Right move right
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+Tab workspace back_and_forth
+
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -128,7 +133,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move .
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
@@ -263,10 +268,10 @@ mode "resize" {
         bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 300 px or 10 ppt
+        bindsym Down resize grow height 300 px or 10 ppt
+        bindsym Up resize shrink height 300 px or 10 ppt
+        bindsym Right resize grow width 300 px or 10 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
@@ -285,6 +290,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id flameshot
+exec --no-startup-id megasync
+exec --no-startup-id dropbox
+#exec --no-startup-id albert
+
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
@@ -392,7 +402,6 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
-bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+T exec --no-startup-id crow
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
