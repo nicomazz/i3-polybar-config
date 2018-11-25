@@ -57,11 +57,13 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F1 exec pcmanfm
+#bindsym $mod+F1 exec pcmanfm
+bindsym $mod+F1 exec thunar; split v; layout tabbed
 bindsym $mod+Shift+F1 exec gksu pcmanfm
 bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec spotify --force-device-scale-factor=2
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F4 exec thunar ~/Documents/uni2018-2019/primo_semestre; split v; layout tabbed
+bindsym $mod+F5 exec thunar ~/DATA/cyberChallange; split v; layout tabbed
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -133,7 +135,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move .
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
@@ -382,7 +384,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 7
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
