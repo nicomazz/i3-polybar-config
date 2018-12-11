@@ -1,0 +1,35 @@
+runtime! archlinux.vim
+so ~/.vim/plugins.vim
+map <C-o> :NERDTreeToggle<CR>
+map <F8> :w <CR> :!g++ % -o %<  <CR>
+map <F9> :!cat input.txt \| ./%<  <CR>
+map <F10> :!cat test_input.txt \| ./%<  <CR>
+map ; :Files<CR>
+
+nnoremap <C-S-Up> <Up>"add"ap<Up>
+nnoremap <C-S-Down> "add"ap
+nnoremap <C-S-i> :ClangFormat <CR>
+
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+let g:comfortable_motion_friction = 0.0
+let g:comfortable_motion_air_drag = 10.0
+
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='google-chrome-stable'
+set tabstop=3
+set shiftwidth=3
+set softtabstop=0 noexpandtab
+
+let g:clang_format#style_options = {
+            \ "Standard" : "C++11",
+            \ "IndentWidth" : 3,
+            \ "UseTab" : "false",
+            \ "AccessModifierOffset" : -2,
+            \ "ColumnLimit" : 0 }
+
+
+set clipboard=unnamedplus
+set spell spelllang=en_gb
+set number
+set cursorline
