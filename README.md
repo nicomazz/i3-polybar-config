@@ -3,8 +3,6 @@ My i3 configuration with polybar for HiDPI screen (4k).
 ![demo image](https://github.com/nicomazz/i3-polybar-config/blob/master/demo.png?raw=true "demo image")
 Since I use many computers, the main intent of this repository is to keep my configuration files somewhere.
 Even if there is more than only the `i3` and `polybar` configuration, I've decided to keep this title, because is exactly what I was searching for a lot of time ago.
-Update: I've recently added the configuration of my other laptop.
-![demo image](https://github.com/nicomazz/i3-polybar-config/blob/master/jumper.png?raw=true "demo image")
 Here I'll also write about the problems (and the solutions) I've found, putting the code directly in the readme.
 
 ## Features:
@@ -46,6 +44,10 @@ I'm absolutely not an expert. The `vimrc` inside the vim folder helps me to be a
 
 ## Important
 You probably have to replace some path (try `find . -type f  -exec grep -l "path/to" {} \;`)
+
+Update: I've recently added the configuration of my other laptop.
+![demo image](https://github.com/nicomazz/i3-polybar-config/blob/master/jumper.png?raw=true "demo image")
+
 Inspiration from:
  - [space](https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes/space "Polybar space theme")
  - [spotify](https://github.com/Jvanrhijn/polybar-spotify "Spotify polybar module")
