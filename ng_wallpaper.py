@@ -45,9 +45,9 @@ else:
         f.write(requests.get(url).content)
     #png conversion
     png_dest = destination_file.replace(".jpg",".png")
+    #todo auto detect screen resolution
     subprocess.run(["convert","-scale","3840x2160^",destination_file,png_dest])
     destination_file = png_dest
 
-            #os.system(f"feh --bg-scale {destination_file}")
 result = subprocess.run(['feh', '--bg-scale',destination_file], stdout=subprocess.PIPE)
 print(result.stdout)
