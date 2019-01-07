@@ -23,7 +23,7 @@ The configuration is pretty similar to the one of Manjaro i3, with some personal
 I use `rofi` to start applications and move around opened windows with this options: `rofi -combi-modi window#drun -show combi -modi combi -show-icons`
 
 #### Daily desktop background update and usage in i3lock
-`ng_wallpaper.py` update desktop image daily, based on the National geographic image of the day (maybe some additional dependency are needed)
+`ng_wallpaper.py` updates desktop image daily, based on the National geographic image of the day (maybe some additional dependencies are needed)
 
 ```bash
 crontab -e
@@ -40,7 +40,7 @@ sleep 1
 exit 0
 ```
 #### vim
-I'm absolutely not an expert. The `vimrc` inside the vim folder helps me to be a little bit more productive. There you can also find some notes about commands I usually use, and often forgot about.
+I'm absolutely not an expert. The `vimrc` inside the vim folder helps me to be a little bit more productive. There you can also find some notes about commands I usually use, and often forget about.
 
 ## Important
 You probably have to replace some path (try `find . -type f  -exec grep -l "path/to" {} \;`)

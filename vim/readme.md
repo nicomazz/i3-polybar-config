@@ -13,19 +13,22 @@
 
 `z=` : when 'spellcheck' is on ('set spell') displays a list of correction for the actual word
 
-#### moving around 
+#### Moving around 
 `#` : previous occurrence
 
 `*` : next occurrence
 
 `ctrl-o` `ctrl-i` : jump backward and foreword in jump list (`:jump` to see the jump list)
 
-#### compile
+#### Edit
+`C` delete until the end of the line and enter in insert mode
+
+#### Compile
 `:make` : execute a make file
 
 `:cw` : open the quickfix window (from which you can jump to compilation warning and errors)
 
-#### vim-multiple-cursors
+#### vim-multiple-cursors (plugin)
 `ctrl-n` to create a new cursor on the next occurrence of the actual word
 	- `c` to change text
 	- `I` to insert at start
