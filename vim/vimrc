@@ -28,13 +28,22 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 let g:comfortable_motion_friction = 0.0
 let g:comfortable_motion_air_drag = 10.0
 
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/.vim/YouCompleteMe/global_extra_conf.py'
+
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='chromium'
 
 " indentation settings
 set tabstop=3
 set shiftwidth=3
-set softtabstop=0 noexpandtab
+set softtabstop=0 expandtab
+set incsearch
 
 " 
 let g:clang_format#style_options = {

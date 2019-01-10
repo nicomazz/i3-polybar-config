@@ -13,14 +13,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rhysd/vim-grammarous'
-Plugin 'FredKSchott/CoVim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
-
