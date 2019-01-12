@@ -8,6 +8,16 @@
 
 `ctrl-W =` : make all splits equal size
 
+#### Folding
+`zM` to increase foldlevel at max (fold everything) (z More)
+`zm` to increase foldlevel by one
+`zR` to unfold everything
+`zr` to reduce foldlevel by one
+`zo` open current fold
+`zc` close current fold
+`zi` enable/disable folding
+`za` toggle a fold (mapped to <s-Tab>)
+
 #### Spell check
 `:set spell`/`:set nospell` to enable/disable
 
