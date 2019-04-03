@@ -38,6 +38,9 @@
 
 `:cw` : open the quickfix window (from which you can jump to compilation warning and errors)
 
+#### Search
+`:set hlsearch` to hilight the last search
+
 #### vim-multiple-cursors (plugin)
 `ctrl-n` to create a new cursor on the next occurrence of the actual word
 	- `c` to change text
