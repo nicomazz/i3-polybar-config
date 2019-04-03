@@ -75,6 +75,41 @@ set number
 set cursorline
 set mouse=a
 syntax on 
+ 
+set hlsearch
+
+let mapleader=" "
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+nnoremap <Leader>t :NERDTreeToggle<Enter>
+
+nnoremap <Leader>d :YcmCompleter GoToDefinition <CR>
+nnoremap <Leader>D :YcmCompleter GoToDeclaration <CR>
+nnoremap <Leader>r :YcmCompleter GoToReferences <CR>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+noremap <leader>w :set wrap!<CR>
+
+nnoremap <C-S-Left> :tabprevious<CR>
+nnoremap <C-S-Right> :tabnext<CR>
+nnoremap <C-Left> <C-o>
+nnoremap <C-Right> <C-i>
+
+nnoremap <leader>c :Gdiff<CR>
+
+let NERDTreeMouseMode=2
+let g:NERDTreeMapActivateNode='go'
+let g:NERDTreeMapPreview='o'
 
 " http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
 " Highlight all instances of word under cursor, when idle.
