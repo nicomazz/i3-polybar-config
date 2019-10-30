@@ -23,12 +23,12 @@ def getImageTitleUrl():
 	
 	if r.status_code == 200:
 			data = r.json()
-			if 'items' in data:
-				current_photo = data['items'][0]
-				if 'sizes' in current_photo:
-					return current_photo["title"], current_photo['sizes']['2048']
-				return current_photo["title"],current_photo["url"]
-	return "";
+			if 'items' not in data: return ""
+			current_photo = data['items'][0]['image']
+		#	if 'renditions' in current_photo:
+		#		return current_photo["title"], current_photo['renditions']['2048']
+			return current_photo["title"],current_photo["uri"]
+	return ""
 
 title, url = getImageTitleUrl();   
 
@@ -45,9 +45,10 @@ else:
         f.write(requests.get(url).content)
     #png conversion
     png_dest = destination_file.replace(".jpg",".png")
-    #todo auto detect screen resolution
     subprocess.run(["convert","-scale","3840x2160^",destination_file,png_dest])
     destination_file = png_dest
 
+            #os.system(f"feh --bg-scale {destination_file}")
 result = subprocess.run(['feh', '--bg-scale',destination_file], stdout=subprocess.PIPE)
 print(result.stdout)
+
