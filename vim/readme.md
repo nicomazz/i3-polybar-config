@@ -36,6 +36,9 @@
 
 #### Edit
 - `C` delete until the end of the line and enter in insert mode
+- `ctrl-D` back one tab
+- `ctrl-T` forward one tab
+- `>>`, `<<` same, but in insert mode
 
 #### Compile
 - `:make` : execute a make file
