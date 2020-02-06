@@ -10,44 +10,25 @@ map <F8> :w <CR> :!g++ % -o %<  <CR>
 map <F9> :!cat input.txt \| ./%<  <CR>
 map <F10> :!cat test_input.txt \| ./%<  <CR>
 " fzf search on files
-" map ; :Files<CR>
+map ; :Files<CR>
 
 " move line up and down
 nnoremap <C-S-Up> <Up>"add"ap<Up>
 nnoremap <C-S-Down> "add"ap
 
 " Format c code
-"nnoremap <C-S-i> :ClangFormat <CR>
+nnoremap <C-S-i> :ClangFormat <CR>
 
 " highlight every search match
 nnoremap <C-h> :set hlsearch!<CR>
 
 " smooth scroll
-"noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-"noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-let g:comfortable_motion_friction = 0.0
-let g:comfortable_motion_air_drag = 10.0
 
-let g:ycm_python_interpreter_path = ''
-let g:ycm_python_sys_path = []
-let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
-let g:ycm_global_ycm_extra_conf = '~/.vim/YouCompleteMe/global_extra_conf.py'
-
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='chromium'
-
-let g:indent_gruides_start_level = 2
-let g:indent_gruides_guide_size = 2
-
-let g:indent_guides_enable_on_vim_startup = 0
 " indentation settings
 set tabstop=3
 set shiftwidth=3
@@ -104,7 +85,12 @@ endfunction
 
 let mapleader = "\<space>"
 nnoremap <space> <nop>
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>r :YcmCompleter GoToReferences<CR>
-nnoremap <leader>f :Files<CR>
+"todo: replace with the new plugin
+"nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>b :make <CR>
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+colorscheme gruvbox
+set bg=dark
