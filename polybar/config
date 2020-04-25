@@ -1,7 +1,7 @@
 [bar/top]
 enable-ipc = true
 bottom = true
-monitor = eDP1
+monitor = eDP-1
 width = 100%
 height = 43
 dpi = 192
@@ -57,7 +57,7 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/bottom]
-monitor = HDMI1
+monitor = HDMI-1
 bottom = true
 width = 100%
 height = 40
@@ -84,9 +84,17 @@ font-2 = xos4\ Terminus:size=14;0
 font-3 = Siji:pixelsize=11;1
 font-4 = FontAwesome:size=11;0
 
-modules-left = i3 
-modules-right =   filesystem volume backlight   battery date
+modules-left = i3 spotify 
+modules-right = cpu memory temperature filesystem xkeyboard volume wireless-network consumation  battery date        
+#modules-right = cpu memory  filesystem volume backlight   battery date
 
+tray-position = right 
+tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${self.background}
+tray-maxsize = 64
+
+tray-offset-y = 0
 [module/backlight]
 type = internal/backlight
 format = <label>
@@ -113,7 +121,7 @@ bar-empty-foreground = #44
 [module/consumation]
 type = custom/script
 
-exec = /path/to/power.sh
+exec = path/to/.config/polybar/power.sh
 interval = 2
 
 [module/battery]
@@ -303,6 +311,7 @@ bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
+;interface = enp4s0
 interface = wlp5s0
 interval = 1.0
 ping-interval = 10
@@ -496,11 +505,10 @@ label-separator-foreground = #ffb52a
 
 [module/spotify]
 type = custom/script
-interval = 5
+interval = 1
 format-prefix = "  "  
 format = <label>
-exec = /home/nicomazz97/.config/polybar/spotify.py
-
+exec = python   path/to/.config/polybar/spotify.py  -f '{play_pause} {song} - {artist} - {album}'
 
 format-underline = #1db954
 

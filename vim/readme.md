@@ -10,6 +10,7 @@
 - `:vsp` `:sp` : open this file also in a split
 - `ctrl-W _` : open current split full-screen
 - `ctrl-W =` : make all splits equal size
+- `:vertical resize 80` to resize the width to 80
 
 #### Folding
 - `zM` to increase foldlevel at max (fold everything) (z More)
@@ -29,6 +30,8 @@
 - `#` : previous occurrence
 - `*` : next occurrence
 - `ctrl-o` `ctrl-i` : jump backward and foreword in jump list (`:jump` to see the jump list)
+- `(`/`)` : previous or next sentence
+- `{`/`}` : previous or next block of text
 
 #### Tabs
 - `gt` `gT` next and previous tab

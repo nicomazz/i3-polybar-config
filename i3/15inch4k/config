@@ -27,7 +27,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec gnome-terminal # terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -58,12 +58,15 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 #bindsym $mod+F1 exec pcmanfm
-bindsym $mod+F1 exec thunar; split v; layout tabbed
+bindsym $mod+F1 exec thunar ~/Downloads
+bindsym $mod+Shift+F exec dolphin 
 bindsym $mod+Shift+F1 exec gksu pcmanfm
-bindsym $mod+F2 exec google-chrome-stable
-bindsym $mod+F3 exec spotify --force-device-scale-factor=2
-bindsym $mod+F4 exec thunar ~/Documents/uni2018-2019/primo_semestre; split v; layout tabbed
-bindsym $mod+F5 exec thunar ~/DATA/cyberChallange; split v; layout tabbed
+bindsym $mod+F2 exec google-chrome-unstable
+bindsym $mod+c exec chromium 
+#bindsym $mod+F3 exec spotify --force-device-scale-factor=2
+bindsym $mod+F3 exec gnome-terminal  -- ranger path/to/Documents/uni2019-20
+bindsym $mod+F4 exec thunar path/to/Documents/uni2019-20
+bindsym $mod+F5 exec thunar ~/DATA/cyberChallange
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -192,7 +195,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="Telegram"] $ws8
+assign [title="Spotify"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -220,9 +224,18 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Crow Translate"] floating enable border normal
-# for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [title="Android Emulator*"] floating enable border normal
+for_window [class="Thunar"] floating enable
+for_window [class="Gnome-terminal"] floating enable
+for_window [class="Gnome-terminal"] resize set 2000 1500 
+for_window [class="Nautilus"] floating enable
+for_window [class="Nautilus"] resize set 2000 1700 
+for_window [class="Zotero"] floating enable 
+for_window [class="dolphin"] floating enable 
+for_window [class="dolphin"] resize set 2000 1700 
+for_window [class="Blueman-manager"] floating enable 
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -237,7 +250,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Shift+m exec ~/.screenlayout/only.sh
-bindsym $mod+Shift+n exec ~/.screenlayout/externalRight.sh
+#bindsym $mod+Shift+n/ exec ~/.screenlayout/externalRight.sh
+#bindsym $mod+Shift+n exec ~/.screenlayout/top_maybe.sh
+bindsym $mod+Shift+n exec ~/.screenlayout/only_top_4k.sh
+bindsym $mod+Shift+u exec ~/.screenlayout/big_4k_top.sh
+
+
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -301,7 +319,7 @@ exec --no-startup-id dropbox
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 10 -locker i3lock -c 111111 #blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id  xinput set-prop 16 'libinput Accel Speed' 0.5 
