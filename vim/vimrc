@@ -134,3 +134,25 @@ function! AutoHighlightToggle()
     return 1
   endif
 endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+set background=dark
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+
+" Better wrapping when the line conitnues
+set wrap               " soft-wrap lines
+set linebreak          " soft-wrap lines only at certain characters (see :help breakat)
+set cpoptions+=n  
+set showbreak=>>
+" enable indentation
+set breakindent
+" ident by an additional 2 characters on wrapped lines, when line >= 40 characters, put 'showbreak' at start of line
+set breakindentopt=shift:2,min:40,sbr
+
+
+let g:vim_markdown_math = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vimtex_fold_enabled = 1
+let g:livepreview_engine = 'pdflatex'
