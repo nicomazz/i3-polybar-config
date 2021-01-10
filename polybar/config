@@ -1,7 +1,7 @@
 [bar/top]
 enable-ipc = true
 bottom = true
-monitor = eDP-1
+monitor = ${env:MONITORS[0]:eDP1}
 width = 100%
 height = 43
 dpi = 192
@@ -36,7 +36,7 @@ font-4 = FontAwesome:size=11;0
 
 
 modules-left = mpd i3 
-modules-right = cpu memory temperature filesystem xkeyboard volume wireless-network consumation  battery date        
+modules-right = cpu memory temperature filesystem xkeyboard alsa wireless-network consumation  battery date        
 
 wm-restack = i3
 
@@ -57,7 +57,7 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/bottom]
-monitor = HDMI-1
+monitor = ${env:MONITORS[1]:HDMI1}
 bottom = true
 width = 100%
 height = 40
@@ -85,7 +85,7 @@ font-3 = Siji:pixelsize=11;1
 font-4 = FontAwesome:size=11;0
 
 modules-left = i3 spotify 
-modules-right = cpu memory temperature filesystem xkeyboard volume wireless-network consumation  battery date        
+modules-right = cpu memory temperature filesystem xkeyboard alsa wireless-network consumation  battery date        
 #modules-right = cpu memory  filesystem volume backlight   battery date
 
 tray-position = right 
@@ -121,7 +121,7 @@ bar-empty-foreground = #44
 [module/consumation]
 type = custom/script
 
-exec = path/to/.config/polybar/power.sh
+exec = /home/carlazz/.config/polybar/power.sh
 interval = 2
 
 [module/battery]
@@ -260,7 +260,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date =    %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -334,11 +334,17 @@ animation-packetloss-1-foreground = ${bar/top.foreground}
 animation-packetloss-framerate = 500
 
 
-[module/volume]
-type = internal/volume
-;speaker-mixer = Speaker
-;headphone-mixer = Headphone
-:headphone-id = 9
+[module/alsa]
+type = internal/alsa
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+
+headphone-id = 9
 
 format-volume = <ramp-volume> <label-volume>
 label-muted =   muted
@@ -349,6 +355,8 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
 
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 [module/filesystem]
 type = internal/fs
@@ -411,8 +419,8 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 ;format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = HOT! %temperature%
+label = %temperature-c%
+label-warn = HOT! %temperature-c%
 label-warn-foreground = #f00
 
 ramp-0 = 
@@ -508,7 +516,7 @@ type = custom/script
 interval = 1
 format-prefix = "  "  
 format = <label>
-exec = python   path/to/.config/polybar/spotify.py  -f '{play_pause} {song} - {artist} - {album}'
+exec = python   /home/carlazz/.config/polybar/spotify.py  -f '{play_pause} {song} - {artist} - {album}'
 
 format-underline = #1db954
 
